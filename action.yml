@@ -2,6 +2,12 @@ name: "Label new pull requests"
 description: "Add a label when a new PR is opened."
 author: "Avijit Chatterjee"
 
+inputs:
+  name:
+    description: 'The name of the person to greet'
+    required: true
+    default: 'World'
+
 runs:
   using: "node20"
   main: "dist/index.js"
