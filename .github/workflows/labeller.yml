@@ -1,7 +1,10 @@
 name: "Hello"
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+
+permissions: write-all
    
 jobs:
   hello:
@@ -10,4 +13,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./
         with:
-          name: 'Avijit'
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          label: 'needs-review'
